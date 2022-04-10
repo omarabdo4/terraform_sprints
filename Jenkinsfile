@@ -7,14 +7,8 @@ pipeline {
                 ok "Submit"
                 parameters {
                     string(defaultValue: 'invalidkey', name: 'pubec2key', trim: true) 
-                }
-                parameters {
                     string(defaultValue: 'invalidkey', name: 'privec2key', trim: true) 
-                }
-                parameters {
                     string(defaultValue: 'invalidip', name: 'pubec2ip', trim: true) 
-                }
-                parameters {
                     string(defaultValue: 'invalidip', name: 'privec2ip', trim: true) 
                 }
             }
