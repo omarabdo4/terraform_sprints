@@ -1,11 +1,6 @@
 pipeline {
-    agent none
+    agent any
     stages {
-        // stage('run command based on env input') {
-        //     steps {
-        //         sh "terraform init -migrate-state; terraform workspace select $tfenv; terraform apply -auto-approve --var-file ${tfenv}.tfvars"                
-        //     }
-        // }
         stage('get public and private ec2 instances ips and private keys, then ssh and pwd') {
             input {
                 message "What is your public ec2 key?"
