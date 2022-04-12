@@ -11,6 +11,16 @@ resource "aws_security_group" "inbound_ssh_anywhere" {
     cidr_blocks      = ["0.0.0.0/0"]
     ipv6_cidr_blocks = ["::/0"]
   }
+
+  egress {
+    description      = "tcp to Anywhere"
+    from_port        = 0
+    to_port          = 65535
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    ipv6_cidr_blocks = ["::/0"]
+  }
+
 }
 
 resource "aws_security_group" "inbound_ssh_vpc_3000" {
