@@ -13,10 +13,10 @@ pipeline {
                 }
             }
             steps {
-                sh "echo '$pubec2key' > pubec2key"
-                sh "echo '$privec2key' > privec2key"
-                sh "ssh -i pubec2key ubuntu@$pubec2ip"
-                sh "ssh -i privec2key ubuntu@$privec2ip"
+                sh "ssh-add - $ssh_for_ec2"
+                sh "ssh ubuntu@$pubec2ip"
+                sh "ssh-add - $ssh_for_ec2"
+                sh "ssh ubuntu@$privec2ip"
                 sh "pwd"
             }
         }
