@@ -15,8 +15,8 @@ pipeline {
             steps {
                 sh "echo '$pubec2key' > pubec2key"
                 sh "echo '$privec2key' > privec2key"
-                sh "ssh -i pubec2key ec2-user@$pubec2ip"
-                sh "ssh -i privec2key ec2-user@$privec2ip"
+                sh "ssh -i pubec2key ubuntu@$pubec2ip"
+                sh "ssh -i privec2key ubuntu@$privec2ip"
                 sh "pwd"
             }
         }
