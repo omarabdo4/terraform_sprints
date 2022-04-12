@@ -14,7 +14,7 @@ pipeline {
             }
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: "ssh_for_ec2", keyFileVariable: 'keyfile')]) {
-                    sh "ssh -i ${keyfile} ubuntu@$pubec2ip"
+                    sh "bash ssh -i ${keyfile} ubuntu@$pubec2ip"
                     // sh "ssh ubuntu@$privec2ip"
                     sh "pwd"
                 }
