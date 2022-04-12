@@ -13,14 +13,11 @@ pipeline {
                 }
             }
             steps {
-                sh """
-                    #!/bin/bash
-                    echo '$pubec2key' > pubec2key"
-                    echo '$privec2key' > privec2key
-                    ssh -i pubec2key ec2-user@$pubec2ip
-                    ssh -i privec2key ec2-user@$privec2ip
-                    pwd
-                """
+                sh "echo '$pubec2key' > pubec2key"
+                sh "echo '$privec2key' > privec2key"
+                sh "ssh -i pubec2key ec2-user@$pubec2ip"
+                sh "ssh -i privec2key ec2-user@$privec2ip"
+                sh "pwd"
             }
         }
 
