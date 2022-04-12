@@ -13,11 +13,11 @@ pipeline {
                 }
             }
             steps {
-                sh "ssh-add - $ssh_for_ec2"
-                sh "ssh ubuntu@$pubec2ip"
-                sh "ssh-add - $ssh_for_ec2"
-                sh "ssh ubuntu@$privec2ip"
-                sh "pwd"
+                withCredentials([sshUserPrivateKey(credentialsId: "ssh_for_ec2", keyFileVariable: 'keyfile')]) {
+                    sh "ssh -i ${keyfile} ubuntu@$pubec2ip"
+                    // sh "ssh ubuntu@$privec2ip"
+                    sh "pwd"
+                }
             }
         }
 
