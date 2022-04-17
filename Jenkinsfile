@@ -1,11 +1,11 @@
 pipeline {
     agent any
+   stages {
         // stage('run command based on env input') {
         //     steps {
         //         sh "terraform init -migrate-state; terraform workspace select $tfenv; terraform apply -auto-approve --var-file ${tfenv}.tfvars"                
         //     }
         // }
-   stages {
         stage('pwd on private ec2') {
             steps {
                 withCredentials([sshUserPrivateKey(credentialsId: "ssh_for_ec2", keyFileVariable: 'keyfile')]) {
